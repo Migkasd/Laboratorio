@@ -1,1 +1,65 @@
+#1
+persona = {
+ 'first_name': 'Edem',
+ 'last_name': 'Terraza',
+ 'age': 31,
+ 'country': 'Peru',
+ 'is_married': True,
+ 'skills': ['JavaScript', 'React', 'Node', 'MongoDB', 'Python'],
+ 'address': {
+ 'street': 'Space street',
+ 'zipcode': '02210'
+ }
+}
+# a
+if 'skills' in persona:
+    H = persona['skills']
+    if len(H) >= 3:
+        habilidad_media = H[len(H) // 2]
+        print("Habilidad media:", habilidad_media)
+# b
+if 'skills' in persona:
+    H = persona['skills']
+    if 'Python' in H:
+        print("Tiene la habilidad Python")
+    else:
+        print("No tiene la habilidad Python")
+# c 
+H = persona.get('skills', [])
+if H == ['JavaScript', 'React']:
+    print("Él es un desarrollador frontend")
+elif all(skill in H for skill in ['Node', 'Python', 'MongoDB']):
+    print("Él es un desarrollador backend")
+elif all(skill in H for skill in ['React', 'Node', 'MongoDB']):
+    print("Él es un desarrollador fullstack")
+else:
+    print("Título desconocido")
 
+#2
+# a
+all_languages = set()
+for country in countries:
+    for language in country["languages"]:
+        all_languages.add(language)
+print(f"Total de idiomas: {len(all_languages)}")
+
+# b
+language_count = {}
+for country in countries:
+    for language in country["languages"]:
+        if language in language_count:
+            language_count[language] += 1
+        else:
+            language_count[language] = 1
+sorted_languages = sorted(language_count.items(), key=lambda x: x[1], reverse=True)
+top_languages = sorted_languages[:10]
+print("Los 10 idiomas más hablados:")
+for lang, count in top_languages:
+    print(f"{lang}: {count} countries")
+
+# c
+sorted_countries = sorted(countries, key=lambda x: x["population"], reverse=True)
+top_populated_countries = sorted_countries[:10]
+print("Los 10 países más poblados:")
+for country in top_populated_countries:
+    print(f"{country['name']}: {country['population']} people")
