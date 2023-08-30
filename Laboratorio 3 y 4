@@ -1,1 +1,96 @@
+#1
+texto = "python"
+longitud = len(texto)
+valor_float = float(longitud)
+valor_string = str(valor_float)
+print("Longitud del texto:", longitud)
+print("Valor en float:", valor_float)
+print("Valor en string:", valor_string)
 
+#2
+print("A B C D E")
+for i in range(1, 6):
+    a = i
+    b = 1
+    c = i ** 2
+    d = i ** 3
+    e = i ** 4
+    print(f"{a} {b} {c} {d} {e}")
+
+#3
+bibliotecas = ['Django', 'Flask', 'Bottle', 'Pyramid', 'Falcon']
+cadena_unida = ' # '.join(bibliotecas)
+print(cadena_unida)
+
+#4
+print("Nombre\tEdad\tPaís\tCiudad")
+print("Edem\t250\tPerú\tAyacucho")
+
+#5
+radio = 10
+area = 3.14 * radio ** 2
+mensaje = "El área de un círculo con radio {} es {} metros cuadrados.".format(radio, area)
+print(mensaje)
+
+#6
+a = 8
+b = 6
+resultado_suma = f"{a} + {b} = {a + b}"
+resultado_resta = f"{a} - {b} = {a - b}"
+resultado_multiplicacion = f"{a} * {b} = {a * b}"
+mensaje_escuela = "ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS\nIng. Edem J. Terraza Huaman"
+resultado_division = f"{a} / {b} = {a / b:.2f}"
+resultado_modulo = f"{a} % {b} = {a % b}"
+resultado_division_entera = f"{a} // {b} = {a // b}"
+resultado_potencia = f"{a} ** {b} = {a ** b}"
+print(resultado_suma)
+print(resultado_resta)
+print(resultado_multiplicacion)
+print(mensaje_escuela)
+print(resultado_division)
+print(resultado_modulo)
+print(resultado_division_entera)
+print(resultado_potencia)
+
+#7
+frase = "Estoy aprendiendo Python y me está gustando mucho. ¡Es genial!"
+palabras = frase.split()
+numero_palabras = len(palabras)
+numero_caracteres = len(frase)
+print("Número de palabras:", numero_palabras)
+print("Número de caracteres:", numero_caracteres)
+
+#8
+frase = "Estoy aprendiendo Python y me está gustando mucho. ¡Es genial!"
+palabras = frase.split()
+numero_palabras = len(palabras)
+numero_caracteres = len(frase)
+print("Número de palabras:", numero_palabras)
+print("Número de caracteres:", numero_caracteres)
+
+#9
+def cifrado_cesar(mensaje, desplazamiento):
+    mensaje_cifrado = ""
+    for letra in mensaje:
+        if letra.isalpha():  # Solo cifra letras, ignora otros caracteres
+            mayuscula = letra.isupper()
+            letra_cifrada = chr((ord(letra) - 65 + desplazamiento) % 26 + 65) if mayuscula else chr((ord(letra) - 97 + desplazamiento) % 26 + 97)
+            mensaje_cifrado += letra_cifrada
+        else:
+            mensaje_cifrado += letra  # Mantén otros caracteres sin cambios
+    return mensaje_cifrado
+mensaje = input("Ingresa el mensaje a cifrar: ")
+desplazamiento = int(input("Ingresa el desplazamiento: "))
+mensaje_cifrado = cifrado_cesar(mensaje, desplazamiento)
+print("Mensaje cifrado:", mensaje_cifrado)
+
+#10
+def es_palindromo(frase):
+    frase = frase.lower()  # Convertir a minúsculas
+    frase = ''.join(caracter for caracter in frase if caracter.isalnum())  # Eliminar espacios y signos de puntuación
+    return frase == frase[::-1]
+frase = input("Ingresa una frase para verificar si es un palíndromo: ")
+if es_palindromo(frase):
+    print("La frase es un palíndromo.")
+else:
+    print("La frase no es un palíndromo.")
