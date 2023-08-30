@@ -1,1 +1,101 @@
+#1
+edades = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
 
+# a
+edades_ordenadas = sorted(edades)
+edad_minima = edades_ordenadas[0]
+edad_maxima = edades_ordenadas[-1]
+print("a. Edades ordenadas:", edades_ordenadas)
+print("   Edad mínima:", edad_minima)
+print("   Edad máxima:", edad_maxima)
+
+# b
+edades_ordenadas.append(edad_minima)
+edades_ordenadas.append(edad_maxima)
+print("b. Lista con edades añadidas:", edades_ordenadas)
+
+# c
+n = len(edades_ordenadas)
+if n % 2 == 1:
+    mediana = edades_ordenadas[n // 2]
+else:
+    mediana = (edades_ordenadas[n // 2 - 1] + edades_ordenadas[n // 2]) / 2
+print("c. Edad mediana:", mediana)
+
+# d
+promedio = sum(edades_ordenadas) / len(edades_ordenadas)
+print("d. Edad promedio:", promedio)
+
+# e
+rango = edad_maxima - edad_minima
+print("e. Rango de edades:", rango)
+
+# f
+diferencia_min_promedio = abs(edad_minima - promedio)
+diferencia_max_promedio = abs(edad_maxima - promedio)
+print("f. Diferencia entre mínimo y promedio:", diferencia_min_promedio)
+print("Diferencia entre máximo y promedio:", diferencia_max_promedio)
+
+#2
+frase = "Soy profesor y me encanta inspirar y enseñar a la gente"
+palabras = frase.split()
+palabras_unicas = set(palabras)
+cantidad_palabras_unicas = len(palabras_unicas)
+print("Cantidad de palabras únicas:", cantidad_palabras_unicas)
+
+#3
+lista1 = list(range(1, 11))
+lista2 = list(range(5, 16))
+lista3 = list(range(10, 21))
+
+# a
+conjunto1 = set(lista1)
+conjunto2 = set(lista2)
+conjunto3 = set(lista3)
+
+# b
+numeros_en_tres_listas = conjunto1 & conjunto2 & conjunto3
+
+# c
+numeros_en_al_menos_una = conjunto1 | conjunto2 | conjunto3
+
+# d
+numeros_primera_no_ultima = conjunto1 - conjunto3
+
+# e
+tupla_numeros_en_tres_listas = (min(numeros_en_tres_listas), max(numeros_en_tres_listas))
+tupla_numeros_en_al_menos_una = (min(numeros_en_al_menos_una), max(numeros_en_al_menos_una))
+tupla_numeros_primera_no_ultima = (min(numeros_primera_no_ultima), max(numeros_primera_no_ultima))
+suma_primer_ultimo_tupla1 = sum(tupla_numeros_en_tres_listas)
+suma_primer_ultimo_tupla2 = sum(tupla_numeros_en_al_menos_una)
+suma_primer_ultimo_tupla3 = sum(tupla_numeros_primera_no_ultima)
+print("a. Conjuntos:", conjunto1, conjunto2, conjunto3)
+print("b. Números presentes en las tres listas:", numeros_en_tres_listas)
+print("c. Números presentes en al menos una de las listas:", numeros_en_al_menos_una)
+print("d. Números presentes en la primera lista, pero no en la última:", numeros_primera_no_ultima)
+print("e. Suma del primer y último elemento de las tuplas:")
+print("   Tupla 1:", suma_primer_ultimo_tupla1)
+print("   Tupla 2:", suma_primer_ultimo_tupla2)
+print("   Tupla 3:", suma_primer_ultimo_tupla3)
+
+#4
+l1 = [("one", 1), ("two", 2), ("three", 3), ("four", 4), ("five", 5)]
+l2 = [("one", 1), ("two", 2), ("six", 6)]
+
+# a
+s1 = set(l1)
+s2 = set(l2)
+
+# b
+s3 = s1 & s2
+
+# c
+s4 = s1 ^ s2
+
+# d
+l3 = sorted(list(s3) + list(s4), key=lambda x: x[1])
+print("a. Conjunto s1:", s1)
+print("   Conjunto s2:", s2)
+print("b. Elementos comunes entre s1 y s2:", s3)
+print("c. Elementos únicos en s1 y s2:", s4)
+print("d. Lista l3 ordenada por número entero:", l3)
