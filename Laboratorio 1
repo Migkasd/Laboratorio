@@ -1,1 +1,10 @@
-
+#1
+numeros = []
+suma = 0
+for i in range(5):
+    numero_ingresado = input("Ingrese un número: ")
+    numero_convertido = int(numero_ingresado)
+    numeros.append(numero_convertido)
+    suma += numero_convertido
+media = suma / 5
+print("La media de los números ingresados es:", media)
