@@ -1,4 +1,4 @@
-#1
+#Tarea
 numeros = []
 suma = 0
 for i in range(5):
@@ -8,3 +8,58 @@ for i in range(5):
     suma += numero_convertido
 media = suma / 5
 print("La media de los números ingresados es:", media)
+
+#ejercicio 1
+import math
+numero = int(input("Ingrese un número: "))
+if numero <= 1:
+    print("El número no es primo.")
+else:
+    es_primo = True
+    limite_superior = math.isqrt(numero) + 1  # Raíz cuadrada redondeada hacia arriba
+    for i in range(2, limite_superior):
+        if numero % i == 0:
+            es_primo = False
+            break
+    if es_primo:
+        print("El número es primo.")
+    else:
+        print("El número no es primo.")
+
+#ejercicio 2
+import math
+def encontrar_primos(n):
+    es_primo = [True] * n
+    es_primo[0] = es_primo[1] = False
+    limite_superior = math.isqrt(n) + 1
+    for i in range(2, limite_superior):
+        if es_primo[i]:
+            for j in range(i*i, n, i):
+                es_primo[j] = False
+    primos = [i for i, valor in enumerate(es_primo) if valor]
+    return primos
+n = int(input("Ingrese un número: "))
+primos = encontrar_primos(n)
+print("Números primos menores que", n, ":", primos)
+
+#ejercicio 3
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+numero = int(input("Ingrese un número: "))
+resultado = factorial(numero)
+print("El factorial de", numero, "es:", resultado)
+
+#ejercicio 4
+def fibonacci(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+n = int(input("Ingrese un número: "))
+for i in range(n):
+    print(fibonacci(i), end=" ")
