@@ -1,1 +1,46 @@
+#1
+# a
+def idiomas_mas_hablados(countries, n=10):
+    language_count = {}
+    for country in countries:
+        for language in country["languages"]:
+            if language in language_count:
+                language_count[language] += 1
+            else:
+                language_count[language] = 1
+    sorted_languages = sorted(language_count.items(), key=lambda x: x[1], reverse=True)
+    return sorted_languages[:n]
+top_languages = idiomas_mas_hablados(countries, n=20)
+print(f"Los {len(top_languages)} idiomas más hablados en el mundo:")
+for lang, count in top_languages:
+    print(f"{lang}: {count} países")
 
+# b
+
+def paises_mas_poblados(countries, n=10):
+    sorted_countries = sorted(countries, key=lambda x: x["population"], reverse=True)
+    return sorted_countries[:n]
+top_populated_countries = paises_mas_poblados(countries)
+print(f"Los {len(top_populated_countries)} países mas poblados son:")
+for country in top_populated_countries:
+    print(f"{country['name']}: {country['population']} personas")
+#2
+import random
+import string
+def generar_contrasena(longitud):
+    caracteres = string.ascii_letters + string.digits + string.punctuation
+    contrasena = []
+    contrasena.append(random.choice(string.ascii_lowercase))
+    contrasena.append(random.choice(string.ascii_uppercase))
+    contrasena.append(random.choice(string.digits))
+    contrasena.append(random.choice(string.punctuation))  
+    for _ in range(longitud - 4):
+        contrasena.append(random.choice(caracteres)) 
+    random.shuffle(contrasena)   
+    return ''.join(contrasena)
+longitud = int(input("Ingrese la longitud deseada de la contraseña: "))
+if longitud < 8:
+    print("La longitud mínima de la contraseña es 8 caracteres.")
+else:
+    contrasena_segura = generar_contrasena(longitud)
+    print("Contraseña segura generada:", contrasena_segura)
